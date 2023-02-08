@@ -1,17 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
 var bodyParser = require('body-parser')
 
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
+const port = process.env.PORT || 3001;
+
+
 
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 
-const port = process.env.PORT || 3001;
 
 const userRouter = require("./routes/userRoutes");
 const presenceRouter = require("./routes/presenceRoutes");
