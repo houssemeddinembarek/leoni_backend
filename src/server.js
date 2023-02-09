@@ -8,9 +8,12 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 const port = process.env.PORT || 3001;
+let corsOptions = {
+  origin: ["http://localhost:3001", "https://humanscape-team5a.netlify.app"],
+};
 
 app.use(express.json({ extended: false }));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const userRouter = require("./routes/userRoutes");
