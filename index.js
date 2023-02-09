@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const serverless = require("serverless-http");
 
 var bodyParser = require("body-parser");
 
@@ -42,7 +43,9 @@ mongoose.connection.on("connected", () => {
   console.log("mongoDB connected !");
 });
 
-app.listen(port, "0.0.0.0", () => {
+app.listen(port,  () => {
   connect();
   console.log("connected to the backend  !");
 });
+
+module.exports.handler = serverless(app);
