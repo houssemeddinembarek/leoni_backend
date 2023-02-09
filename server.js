@@ -8,12 +8,10 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 const port = process.env.PORT || 3001;
-let corsOptions = {
-  origin: ["http://localhost:3001", "http://localhost:3000" , "https://leoni-backend.vercel.app"],
-};
 
-app.use(express.json({ extended: false }));
-app.use(cors(corsOptions));
+
+app.use(express.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const userRouter = require("./routes/userRoutes");
