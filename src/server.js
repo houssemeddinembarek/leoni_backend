@@ -9,7 +9,7 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 const port = process.env.PORT || 3001;
 let corsOptions = {
-  origin: ["http://localhost:3001", "https://humanscape-team5a.netlify.app"],
+  origin: ["http://localhost:3001", "http://localhost:3000" , "https://leoni-backend.vercel.app"],
 };
 
 app.use(express.json({ extended: false }));
